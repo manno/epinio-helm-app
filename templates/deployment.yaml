@@ -4,11 +4,6 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     {{- include "epinio-app.labels" . | nindent 4 }}
-  ownerReferences:
-  - apiVersion: app.k8s.io/v1beta1
-    kind: Application
-    name: {{ .Release.Name }}
-    uid: {{ .Values.epinio.ownerUID }}
 spec:
   replicas: {{ .Values.epinio.replicaCount }}
   selector:

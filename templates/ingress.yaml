@@ -8,11 +8,6 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
   labels:
     {{- include "epinio-app.labels" . | nindent 4 }}
-  ownerReferences:
-  - apiVersion: app.k8s.io/v1beta1
-    kind: Application
-    name: {{ .Release.Name }}
-    uid: {{ .Values.epinio.ownerUID }}
 spec:
   rules:
     - host: {{ .Values.epinio.hostname }}
