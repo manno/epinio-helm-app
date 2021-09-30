@@ -10,12 +10,12 @@ metadata:
     {{- include "epinio-app.labels" . | nindent 4 }}
 spec:
   rules:
-    - host: {{ .Values.epinio.hostname }}
+    - host: {{ .Values.epinio.route }}
       http:
         paths:
           - backend:
               service:
-                name: {{ .Values.epinio.serviceName }}
+                name: {{ .Release.Name }}
                 port:
                   number: 8080
             path: /
